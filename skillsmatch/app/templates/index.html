@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}CareerMatch - Home{% endblock %}
+{% block content %}
+<style>
+    /* Unique styles for index.html: Vibrant intro with student focus */
+    .intro { text-align: center; padding: 100px 20px; animation: fadeIn 2s ease-in; }
+    .intro h1 { font-size: 5rem; background: linear-gradient(to right, var(--accent), #ec4899); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .intro p { font-size: 1.8rem; margin-bottom: 40px; opacity: 0.9; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+<div class="container" style="max-width:900px;">
+    <section class="intro glass" style="padding:56px 40px 44px 40px; margin-top:48px; text-align:center; box-shadow:0 6px 32px 0 rgba(60,30,90,0.10);">
+        <h1 style="font-size:3.2rem; font-weight:900; margin-bottom:18px; letter-spacing:-2px; color:#fff;">Discover Your Future</h1>
+        <p style="font-size:1.25rem; margin-bottom:28px; color:#f3e8ff;">CareerMatch helps students find the best careers and universities based on their unique skills and interests. Take a quick quiz, explore your strengths, and see real university programs that fit you.</p>
+        <a href="/signup" class="btn-primary" style="font-size:1.2rem; padding:16px 38px;">Get Started</a>
+        <div style="margin-top:22px;">
+            <a href="/login" style="color:#fff;opacity:0.9;text-decoration:underline;font-size:1.05rem;">Already have an account? Log in</a>
+        </div>
+        <div style="margin-top:38px;">
+            <h3 style="color:#fff;font-size:1.3rem;font-weight:700;margin-bottom:10px;">How it works</h3>
+            <div class="grid" style="gap:24px;">
+                <div class="card" style="background:rgba(255,255,255,0.07);">
+                    <b>1. Sign up</b><br>Quick and easy registration.
+                </div>
+                <div class="card" style="background:rgba(255,255,255,0.07);">
+                    <b>2. Take the quiz</b><br>Tell us about your skills and interests.
+                </div>
+                <div class="card" style="background:rgba(255,255,255,0.07);">
+                    <b>3. Get matches</b><br>See careers and universities tailored for you.
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+/* Advanced, modern styles for CareerMatch */
+:root{
+  --bg1: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  --glass: rgba(255,255,255,0.08);
+  --accent: #8b5cf6;
+  --muted: rgba(255,255,255,0.8);
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:var(--bg1);color:#fff;min-height:100vh;margin:0}
+.glass{background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:16px}
+.container{max-width:1100px;margin:0 auto;padding:48px}
+h1{font-weight:900;margin:0 0 12px}
+.intro{padding:48px;border-radius:20px}
+.btn-primary{background:linear-gradient(90deg,var(--accent),#ec4899);padding:14px 22px;border-radius:999px;color:white;font-weight:700;border:none;display:inline-block;text-decoration:none}
+/* Generic button (used on some templates) */
+.btn{background:linear-gradient(90deg,var(--accent),#ec4899);padding:12px 20px;border-radius:12px;color:white;font-weight:700;border:none;display:inline-block;text-decoration:none}
+
+/* Top navigation/header */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0.02));backdrop-filter:blur(6px)}
+.brand{font-weight:800;letter-spacing:0.4px}
+.navlinks a{color:white;opacity:0.95;text-decoration:none;margin-left:12px}
+input[type=text], input[type=email], input[type=password], select, textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);color:inherit;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.04)}
+.career{font-size:1.25rem;margin:0 0 6px}
+.uni{color:var(--muted);font-size:0.95rem}
+footer{opacity:0.9;text-align:center;padding:18px 0}
+@media (max-width:640px){.container{padding:20px}.intro{padding:20px}}
+
+/* decorative */
+.float{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:none}50%{transform:translateY(-10px)}}
+
+/* Confetti styles (used by base template) */
+.confetti{position:fixed;width:10px;height:10px;pointer-events:none;z-index:9999;border-radius:2px}
+@keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+.confetti{animation:fall linear forwards}

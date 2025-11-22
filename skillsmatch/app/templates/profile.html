@@ -1,0 +1,45 @@
+
+<style>
+    .form-container { max-width: 440px; margin: 0 auto; padding: 48px 0; }
+    h2 { font-size: 2.3rem; text-align: center; margin-bottom: 32px; font-weight: 900; letter-spacing: -1px; }
+    .quiz-box { background: rgba(255,255,255,0.13); padding: 22px 18px 10px 18px; border-radius: 16px; margin-top: 24px; }
+    label { display: block; margin: 15px 0 8px; font-weight: 600; font-size: 1.08rem; color: #fff; }
+</style>
+
+<div class="form-container">
+    <div class="glass" style="padding:36px 32px 28px 32px; box-shadow:0 4px 32px 0 rgba(60,30,90,0.10);">
+        <h2>Tell Us About You</h2>
+        <form method="POST" action="/profile">
+            <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:13px 14px 13px 38px;border-radius:10px;border:1.5px solid #eee;background:rgba(255,255,255,0.10);color:#222;font-size:1.08rem;outline:none;background-image:url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/person.svg');background-repeat:no-repeat;background-size:18px;background-position:12px center;margin-bottom:16px;" value="{{ user.name or '' }}" />
+            <input type="text" name="skill" placeholder="Your Skills (e.g. programming, design, math, writing)" required style="width:100%;padding:13px 14px 13px 38px;border-radius:10px;border:1.5px solid #eee;background:rgba(255,255,255,0.10);color:#222;font-size:1.08rem;outline:none;background-image:url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/award.svg');background-repeat:no-repeat;background-size:18px;background-position:12px center;margin-bottom:16px;" value="{{ user.skills or '' }}" />
+
+            <div class="quiz-box">
+                <label>Do you enjoy solving technical problems?</label>
+                <select name="quiz1" required style="width:100%;padding:10px 12px;border-radius:8px;margin-bottom:8px;">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label>Do you love creating art or designs?</label>
+                <select name="quiz2" required style="width:100%;padding:10px 12px;border-radius:8px;margin-bottom:8px;">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label>Do you enjoy analyzing data?</label>
+                <select name="quiz3" required style="width:100%;padding:10px 12px;border-radius:8px;margin-bottom:8px;">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label>Do you like leading and communicating?</label>
+                <select name="quiz4" required style="width:100%;padding:10px 12px;border-radius:8px;margin-bottom:8px;">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width:100%;font-size:1.1rem;padding:13px 0;margin-top:28px;">Discover My Future</button>
+        </form>
+    </div>
+</div>

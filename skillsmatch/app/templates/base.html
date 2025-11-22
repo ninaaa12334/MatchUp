@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CareerMatch{% endblock %}</title>
+
+    <!-- ALL CSS IS HERE — 100% WORKING -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Minimal critical styles so page looks usable even if external CSS fails */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff}
+        main{padding:28px}
+        .container{max-width:1100px;margin:0 auto;padding:24px}
+        .glass{background:rgba(255,255,255,0.06);padding:18px;border-radius:12px}
+        .btn-primary{background:linear-gradient(90deg,#8b5cf6,#ec4899);padding:10px 16px;border-radius:10px;color:#fff;text-decoration:none;display:inline-block}
+    </style>
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">CareerMatch</div>
+        <nav class="navlinks">
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/matches">Matches</a>
+            {% if user %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/signup">Sign up</a>
+                <a href="/login">Log in</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+    {% block content %}{% endblock %}
+    </main>
+
+    <!-- HTMX + Confetti Script -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script>
+        function celebrate() {
+            const colors = ['#ff0044', '#00ff88', '#4488ff', '#ffaa00', '#ff44aa'];
+            for(let i = 0; i < 100; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti';
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.background = colors[Math.floor(Math.random() * colors.length)];
+                c.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(c);
+                setTimeout(() => c.remove(), 5000);
+            }
+        }
+        document.addEventListener('click', e => {
+            if (e.target.closest('.card')) celebrate();
+        });
+    </script>
+</body>
+</html>

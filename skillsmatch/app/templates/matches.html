@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .container { padding: 48px 0 32px 0; text-align: center; max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 2.3rem; margin-bottom: 24px; font-weight:900; letter-spacing:-1px; }
+    .search { max-width: 420px; margin: 0 auto 36px; padding:13px 14px 13px 38px;border-radius:10px;border:1.5px solid #eee;background:rgba(255,255,255,0.10);color:#222;font-size:1.08rem;outline:none;background-image:url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/search.svg');background-repeat:no-repeat;background-size:18px;background-position:12px center; }
+    .card { padding: 28px 22px 22px 22px; text-align: center; transition: 0.3s; border-radius: 16px; box-shadow:0 2px 16px 0 rgba(60,30,90,0.07); background:rgba(255,255,255,0.10); }
+    .card:hover { transform: scale(1.04); background:rgba(255,255,255,0.16); }
+    .career { font-size: 1.35rem; font-weight: 800; margin: 10px 0 6px 0; color:#fff; }
+    .uni { color: #fbbf24; font-size: 1.08rem; font-weight:600; }
+</style>
+
+<div class="container">
+    <h1>{{ user.name }}, here are your career matches!</h1>
+    <p style="font-size:1.15rem; margin-bottom:24px; color:#f3e8ff;">Personality: <strong>{{ personality_type }}</strong></p>
+    <input type="text" name="q" placeholder="Search careers..." class="search"
+            value="{{ search_query or '' }}"
+            hx-get="/matches?personality_type={{ personality_type }}"
+            hx-trigger="keyup changed delay:500ms"
+            hx-target="#results"
+            hx-include="[name='q']">
+    <div id="results" class="grid" style="gap:24px; margin-top:18px;">
+        {% for m in matches %}
+        <div class="glass card">
+            <h3 class="career">{{ m['career'] }}</h3>
+            <p class="uni">Top Unis: {{ m['university'] }}</p>
+            <p style="margin-top:12px; opacity:0.93; font-size:1.01rem;">{{ m['details'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
