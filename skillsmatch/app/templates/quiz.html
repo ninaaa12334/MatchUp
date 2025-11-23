@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}CareerMatch - Quiz{% endblock %}
+
+{% block head %}
+<style>
+  .quiz-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 32px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+  }
+  .quiz-container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    color: transparent;
+    font-weight: 800;
+  }
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+  .likert {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0 24px;
+  }
+  .likert label {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .btn-primary {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 28px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="quiz-container glass">
+  <h2>CareerMatch Quiz</h2>
+  <form method="POST" action="/quiz" autocomplete="off">
+    <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+    <input type="text" name="skill" placeholder="Your Key Skills (comma separated)" class="form-input" required>
+
+    <div>
+      <p><b>1. I enjoy working with technology.</b></p>
+      <div class="likert">
+        <label><input type="radio" name="q1" value="strongly_disagree" required> Strongly Disagree</label>
+        <label><input type="radio" name="q1" value="disagree"> Disagree</label>
+        <label><input type="radio" name="q1" value="neutral"> Neutral</label>
+        <label><input type="radio" name="q1" value="agree"> Agree</label>
+        <label><input type="radio" name="q1" value="strongly_agree"> Strongly Agree</label>
+      </div>
+    </div>
+
+    <div>
+      <p><b>2. I enjoy artistic or creative activities.</b></p>
+      <div class="likert">
+        <label><input type="radio" name="q2" value="strongly_disagree" required> Strongly Disagree</label>
+        <label><input type="radio" name="q2" value="disagree"> Disagree</label>
+        <label><input type="radio" name="q2" value="neutral"> Neutral</label>
+        <label><input type="radio" name="q2" value="agree"> Agree</label>
+        <label><input type="radio" name="q2" value="strongly_agree"> Strongly Agree</label>
+      </div>
+    </div>
+
+    <div>
+      <p><b>3. I enjoy analyzing data and statistics.</b></p>
+      <div class="likert">
+        <label><input type="radio" name="q3" value="strongly_disagree" required> Strongly Disagree</label>
+        <label><input type="radio" name="q3" value="disagree"> Disagree</label>
+        <label><input type="radio" name="q3" value="neutral"> Neutral</label>
+        <label><input type="radio" name="q3" value="agree"> Agree</label>
+        <label><input type="radio" name="q3" value="strongly_agree"> Strongly Agree</label>
+      </div>
+    </div>
+
+    <div>
+      <p><b>4. I enjoy communicating and leading groups.</b></p>
+      <div class="likert">
+        <label><input type="radio" name="q4" value="strongly_disagree" required> Strongly Disagree</label>
+        <label><input type="radio" name="q4" value="disagree"> Disagree</label>
+        <label><input type="radio" name="q4" value="neutral"> Neutral</label>
+        <label><input type="radio" name="q4" value="agree"> Agree</label>
+        <label><input type="radio" name="q4" value="strongly_agree"> Strongly Agree</label>
+      </div>
+    </div>
+
+    <div>
+      <p><b>5. I enjoy solving math problems.</b></p>
+      <div class="likert">
+        <label><input type="radio" name="q5" value="strongly_disagree" required> Strongly Disagree</label>
+        <label><input type="radio" name="q5" value="disagree"> Disagree</label>
+        <label><input type="radio" name="q5" value="neutral"> Neutral</label>
+        <label><input type="radio" name="q5" value="agree"> Agree</label>
+        <label><input type="radio" name="q5" value="strongly_agree"> Strongly Agree</label>
+      </div>
+    </div>
+
+    <div>
+      <p><b>6. I enjoy doing scientific research.</b></p>
+      <div class="likert">
+        <label><input type="radio" name="q6" value="strongly_disagree" required> Strongly Disagree</label>
+        <label><input type="radio" name="q6" value="disagree"> Disagree</label>
+        <label><input type="radio" name="q6" value="neutral"> Neutral</label>
+        <label><input type="radio" name="q6" value="agree"> Agree</label>
+        <label><input type="radio" name="q6" value="strongly_agree"> Strongly Agree</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary">See My Matches</button>
+  </form>
+</div>
+{% endblock %}
